@@ -1,7 +1,7 @@
 package com.worldpay.offer.web.controller;
 
 import com.worldpay.offer.persistence.model.Offer;
-import com.worldpay.offer.service.CreateOfferService;
+import com.worldpay.offer.service.UpdateOfferService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,29 +14,30 @@ import org.springframework.test.web.servlet.MockMvc;
 import static com.worldpay.offer.web.controller.util.TestUtil.asJsonString;
 import static com.worldpay.offer.web.controller.util.TestUtil.getOffer;
 import static org.mockito.BDDMockito.willDoNothing;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(CreateOfferController.class)
-class CreateOfferControllerTest {
+@WebMvcTest(UpdateOfferController.class)
+class UpdateOfferControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
-    private CreateOfferService createOfferService;
+    private UpdateOfferService updateOfferService;
 
     @Test
-    void shouldCreateOffer() throws Exception {
+    void shouldUpdateOffer() throws Exception {
         Offer offer = getOffer();
 
-        willDoNothing().given(createOfferService).create(offer);
+        willDoNothing().given(updateOfferService).update(1L, offer);
+
         MediaType json = MediaType.parseMediaType("application/json;charset=UTF-8");
 
-        mvc.perform(post("/offers")
+        mvc.perform(put("/offers/1", offer.getId())
                             .contentType(json)
                             .content(asJsonString(offer)))
-           .andExpect(status().isCreated());
+           .andExpect(status().isOk());
     }
 }

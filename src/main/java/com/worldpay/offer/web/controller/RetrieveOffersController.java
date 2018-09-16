@@ -32,8 +32,8 @@ public class RetrieveOffersController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(value = "/{id}")
     @ResponseBody
-    public Offer findById(@PathVariable String id) {
+    public Offer findById(@PathVariable Long id) {
 
-        return retrieveOffersService.findById(Long.valueOf(id));
+        return retrieveOffersService.findById(id);
     }
 }
