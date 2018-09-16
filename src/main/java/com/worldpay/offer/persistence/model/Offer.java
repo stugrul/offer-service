@@ -10,8 +10,6 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "offer")
 public class Offer {
-    //TODO add swagger api documentation for each of these fields
-
     @Id
     @Column(name = "OFFER_ID")
     private Long id;

@@ -4,7 +4,7 @@ Offer Service
 
 **Description**
 
-This is a Restful Offer Service which allows merchants to sell offers. Application communicates over HTTP protocol.
+Offer Service allows merchants to sell offers. Application communicates using HTTP protocol.
 
 **Getting Started**
 
@@ -53,6 +53,8 @@ Below is an Offer object which some of the endpoints consume
   "currency": "EUR",
   "validUntil": "2018-10-10"
 }
+
+Date format needs to follow ISO LOCAL DATE format. (yyyy-MM-dd)
 
 To advertise an offer POST an Offer object to http://localhost:8082/offers
 
