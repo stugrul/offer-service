@@ -27,9 +27,13 @@ The application is built in Java 8 with Spring Boot while benefiting Test Driven
 There are 5 endpoints available, all endpoints produces and consumes Json representations. (application/json) 
 
 GET http://localhost:8082/offers
+
 GET http://localhost:8082/offers/{id}
+
 POST http://localhost:8082/offers
+
 PUT http://localhost:8082/offers/{id}
+
 DELETE http://localhost:8082/offers/{id}
 
 API allows merchants to advertise, retrieve, update and delete offers
