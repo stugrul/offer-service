@@ -1,7 +1,7 @@
-package com.worldpay.offer.web.controller;
+package com.worldpay.offer.web.controller.retrieve;
 
 import com.worldpay.offer.persistence.model.Offer;
-import com.worldpay.offer.service.RetrieveOfferService;
+import com.worldpay.offer.service.retrieve.RetrieveOffersService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,21 +29,21 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(RetrieveOfferController.class)
-class RetrieveOfferControllerTest {
+@WebMvcTest(RetrieveOffersController.class)
+class RetrieveOffersControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
-    private RetrieveOfferService retrieveOfferService;
+    private RetrieveOffersService retrieveOffersService;
 
     @Test
-    void shouldGetOffers_thenReturnJsonArray() throws Exception {
+    void shouldFindOffers() throws Exception {
         Offer offer = getOffer();
         List<Offer> allOffers = Collections.singletonList(offer);
 
-        given(retrieveOfferService.findAll()).willReturn(allOffers);
+        given(retrieveOffersService.findAll()).willReturn(allOffers);
         MediaType json = MediaType.parseMediaType("application/json;charset=UTF-8");
 
         mvc.perform(get("/offers"))
@@ -52,7 +52,7 @@ class RetrieveOfferControllerTest {
            .andExpect(jsonPath("$", hasSize(1)))
            .andExpect(jsonPath("$[0].name", is(offer.getName())));
 
-        verify(retrieveOfferService).findAll();
+        verify(retrieveOffersService).findAll();
     }
 
     private static Offer getOffer() {

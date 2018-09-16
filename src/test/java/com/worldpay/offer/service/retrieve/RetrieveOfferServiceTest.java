@@ -1,4 +1,4 @@
-package com.worldpay.offer.service;
+package com.worldpay.offer.service.retrieve;
 
 import com.worldpay.offer.persistence.model.Offer;
 import org.junit.jupiter.api.Test;
@@ -26,13 +26,13 @@ class RetrieveOfferServiceTest {
     private JpaRepository<Offer, Long> offerJpaRepository;
 
     @InjectMocks
-    private RetrieveOfferService retrieveOfferService;
+    private RetrieveOffersService retrieveOffersService;
 
     @Test
     void should_FindAllOffers() {
         when(offerJpaRepository.findAll()).thenReturn(Collections.singletonList(offer));
 
-        List<Offer> offers = retrieveOfferService.findAll();
+        List<Offer> offers = retrieveOffersService.findAll();
 
         assertAll(
                 () -> verify(offerJpaRepository).findAll(),
