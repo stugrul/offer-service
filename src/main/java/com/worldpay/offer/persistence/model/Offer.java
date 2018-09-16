@@ -6,7 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "offer")
@@ -35,7 +34,7 @@ public class Offer {
 
     @Column(unique = false, nullable = false)
     @NotNull
-    private LocalDateTime validUntil;
+    private String validUntil;
 
     public String getName() {
         return name;
@@ -69,11 +68,11 @@ public class Offer {
         this.currency = currency;
     }
 
-    public LocalDateTime getValidUntil() {
+    public String getValidUntil() {
         return validUntil;
     }
 
-    public void setValidUntil(final LocalDateTime validUntil) {
+    public void setValidUntil(final String validUntil) {
         this.validUntil = validUntil;
     }
 

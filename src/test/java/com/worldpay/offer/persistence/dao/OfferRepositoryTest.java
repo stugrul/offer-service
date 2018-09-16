@@ -8,13 +8,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
 import java.util.Optional;
 
+import static com.worldpay.offer.web.controller.util.TestUtil.getOffer;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -41,18 +37,5 @@ class OfferRepositoryTest {
         } else {
             fail("Should not reach here");
         }
-    }
-
-    private static Offer getOffer() {
-        Offer offer = new Offer();
-
-        offer.setName("Garfield");
-        offer.setCurrency("EUR");
-        offer.setDescription("This is a Garfield toy");
-        offer.setId(1L);
-        offer.setPrice(BigDecimal.valueOf(2));
-        offer.setValidUntil(LocalDateTime.of(LocalDate.of(2018, Month.DECEMBER, 31), LocalTime.MIDNIGHT));
-
-        return offer;
     }
 }

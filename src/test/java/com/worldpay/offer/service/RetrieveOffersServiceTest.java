@@ -1,4 +1,4 @@
-package com.worldpay.offer.service.retrieve;
+package com.worldpay.offer.service;
 
 import com.worldpay.offer.persistence.model.Offer;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,7 @@
-package com.worldpay.offer.web.controller.retrieve;
+package com.worldpay.offer.web.controller;
 
 import com.worldpay.offer.persistence.model.Offer;
-import com.worldpay.offer.service.retrieve.RetrieveOffersService;
+import com.worldpay.offer.service.RetrieveOffersService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +11,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
 import java.util.Collections;
 import java.util.List;
 
+import static com.worldpay.offer.web.controller.util.TestUtil.getOffer;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.BDDMockito.given;
@@ -55,16 +51,18 @@ class RetrieveOffersControllerTest {
         verify(retrieveOffersService).findAll();
     }
 
-    private static Offer getOffer() {
-        Offer offer = new Offer();
+    @Test
+    void shouldFindOffer_ById() throws Exception {
+        Offer offer = getOffer();
 
-        offer.setName("Garfield");
-        offer.setCurrency("EUR");
-        offer.setDescription("This is a Garfield toy");
-        offer.setId(1L);
-        offer.setPrice(BigDecimal.valueOf(2));
-        offer.setValidUntil(LocalDateTime.of(LocalDate.of(2018, Month.DECEMBER, 31), LocalTime.MIDNIGHT));
+        given(retrieveOffersService.findById(1L)).willReturn(offer);
+        MediaType json = MediaType.parseMediaType("application/json;charset=UTF-8");
 
-        return offer;
+        mvc.perform(get("/offers/1"))
+           .andExpect(status().isOk())
+           .andExpect(content().contentType(json))
+           .andExpect(jsonPath("$.name", is(offer.getName())));
+
+        verify(retrieveOffersService).findById(1L);
     }
 }

@@ -1,5 +1,6 @@
-package com.worldpay.offer.service.retrieve;
+package com.worldpay.offer.service;
 
+import com.worldpay.offer.exception.OfferServiceException;
 import com.worldpay.offer.persistence.model.Offer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,9 @@ public class RetrieveOffersService {
 
     public List<Offer> findAll() {
         return offerJpaRepository.findAll();
+    }
+
+    public Offer findById(final Long id) {
+        return offerJpaRepository.findById(id).orElseThrow(() -> new OfferServiceException("Offer does not exist"));
     }
 }
