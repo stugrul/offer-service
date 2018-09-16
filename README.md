@@ -37,7 +37,7 @@ DELETE http://localhost:8082/offers/{id}
 
 API allows merchants to advertise, retrieve, update and delete offers
 
-Below is a Offer object which some of the endpoints consumes
+Below is an Offer object which some of the endpoints consume
 
 {
   "id": 1,
@@ -48,7 +48,7 @@ Below is a Offer object which some of the endpoints consumes
   "validUntil": "2018-10-10"
 }
 
-To post an offer an Offer object needs to be sent to http://localhost:8082/offers
+To advertise an offer POST an Offer object to http://localhost:8082/offers
 
 To Retrieve all offers simply do GET http://localhost:8082/offers
 
