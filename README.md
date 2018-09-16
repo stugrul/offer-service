@@ -13,11 +13,13 @@ project.
 The application requires Java 8 or higher. Rest of the application is self contained. 
 
 **Installing**
+
 Once the source code is checked out, run mvn clean install to download dependencies. 
 
 To run the application simply run it as Spring Boot application either using your IDE or running mvn spring-boot:run
 
 By default the application runs on port 8082 in local environment
+
 **Technologies**
 
 The application is built in Java 8 with Spring Boot while benefiting Test Driven Development and Single Responsibility Principle techniques
