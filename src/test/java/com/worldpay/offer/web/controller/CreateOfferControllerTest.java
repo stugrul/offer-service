@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static com.worldpay.offer.web.controller.util.TestUtil.asJsonString;
 import static com.worldpay.offer.web.controller.util.TestUtil.getOffer;
 import static org.mockito.BDDMockito.willDoNothing;
+import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -38,5 +39,7 @@ class CreateOfferControllerTest {
                             .contentType(json)
                             .content(asJsonString(offer)))
            .andExpect(status().isCreated());
+
+        verify(createOfferService).create(offer);
     }
 }

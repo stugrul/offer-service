@@ -11,6 +11,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.BDDMockito.willDoNothing;
+import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -33,5 +34,7 @@ class CancelOfferControllerTest {
         mvc.perform(delete("/offers/1")
                             .contentType(json))
            .andExpect(status().isOk());
+
+        verify(cancelOfferService).cancel(1L);
     }
 }
