@@ -48,7 +48,7 @@ Below is an Offer object which some of the endpoints consume
 {
   "id": 1,
   "name": "Garfield Offer",
-  "description": "This is a garfield toy",
+  "description": "This is a garfield toy offer",
   "price": 2,
   "currency": "EUR",
   "validUntil": "2018-10-10"
