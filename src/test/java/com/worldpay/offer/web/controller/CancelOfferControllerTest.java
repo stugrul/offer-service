@@ -1,6 +1,6 @@
 package com.worldpay.offer.web.controller;
 
-import com.worldpay.offer.service.DeleteOfferService;
+import com.worldpay.offer.service.CancelOfferService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +15,18 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(DeleteOfferController.class)
-class DeleteOfferControllerTest {
+@WebMvcTest(CancelOfferController.class)
+class CancelOfferControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
-    private DeleteOfferService deleteOfferService;
+    private CancelOfferService cancelOfferService;
 
     @Test
     void should_UpdateOffer() throws Exception {
-        willDoNothing().given(deleteOfferService).delete(1L);
+        willDoNothing().given(cancelOfferService).cancel(1L);
 
         MediaType json = MediaType.parseMediaType("application/json;charset=UTF-8");
 

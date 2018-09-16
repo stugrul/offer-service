@@ -15,9 +15,9 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class DeleteOfferServiceTest {
+class CancelOfferServiceTest {
     @InjectMocks
-    private DeleteOfferService deleteOfferService;
+    private CancelOfferService cancelOfferService;
 
     @Mock
     private JpaRepository<Offer, Long> offerJpaRepository;
@@ -36,7 +36,7 @@ class DeleteOfferServiceTest {
 
         doNothing().when(offerJpaRepository).delete(offer);
 
-        deleteOfferService.delete(1L);
+        cancelOfferService.cancel(1L);
 
         assertAll(
                 () -> verify(offerJpaRepository).delete(offer)
@@ -49,7 +49,7 @@ class DeleteOfferServiceTest {
 
         when(retrieveOffersService.findById(offer.getId())).thenReturn(null);
 
-        deleteOfferService.delete(1L);
+        cancelOfferService.cancel(1L);
 
         assertAll(
                 () -> verify(offerJpaRepository, never()).delete(offer)
