@@ -15,9 +15,8 @@ public class DeleteOfferService {
         this.retrieveOffersService = retrieveOffersService;
     }
 
-    public void delete(final long id, final Offer offer) {
-        if (retrieveOffersService.findById(id) != null) {
-            offerJpaRepository.delete(offer);
-        }
+    public void delete(final long id) {
+        Offer offer = retrieveOffersService.findById(id);
+        offerJpaRepository.delete(offer);
     }
 }

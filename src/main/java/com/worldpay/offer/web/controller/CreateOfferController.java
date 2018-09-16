@@ -3,6 +3,7 @@ package com.worldpay.offer.web.controller;
 import com.worldpay.offer.constant.Mappings;
 import com.worldpay.offer.persistence.model.Offer;
 import com.worldpay.offer.service.CreateOfferService;
+import com.worldpay.offer.web.RestPreconditions;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,6 +28,8 @@ public class CreateOfferController {
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody @Valid final Offer offer) {
 
+        RestPreconditions.checkRequestElementNotNull(offer);
+        RestPreconditions.checkRequestElementNotNull(offer.getId());
         createOfferService.create(offer);
     }
 }

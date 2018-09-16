@@ -36,7 +36,7 @@ class DeleteOfferServiceTest {
 
         doNothing().when(offerJpaRepository).delete(offer);
 
-        deleteOfferService.delete(1L, offer);
+        deleteOfferService.delete(1L);
 
         assertAll(
                 () -> verify(offerJpaRepository).delete(offer)
@@ -49,7 +49,7 @@ class DeleteOfferServiceTest {
 
         when(retrieveOffersService.findById(offer.getId())).thenReturn(null);
 
-        deleteOfferService.delete(1L, offer);
+        deleteOfferService.delete(1L);
 
         assertAll(
                 () -> verify(offerJpaRepository, never()).delete(offer)

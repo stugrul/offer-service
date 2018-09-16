@@ -3,7 +3,7 @@ package com.worldpay.offer.web.controller;
 import com.worldpay.offer.constant.Mappings;
 import com.worldpay.offer.persistence.model.Offer;
 import com.worldpay.offer.service.UpdateOfferService;
-import com.worldpay.offer.web.RestPreConditions;
+import com.worldpay.offer.web.RestPreconditions;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +29,10 @@ public class UpdateOfferController {
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable Long id, @RequestBody @Valid final Offer offer) {
 
-        RestPreConditions.checkIfBadRequest(offer.getId().equals(id), "Offer ID and URI ID don't match");
+        RestPreconditions.checkRequestElementNotNull(offer);
+        RestPreconditions.checkRequestElementNotNull(offer.getId());
+        RestPreconditions.checkIfBadRequest(offer.getId().equals(id), "Offer ID and URI ID don't match");
+
         updateOfferService.update(id, offer);
     }
 }
