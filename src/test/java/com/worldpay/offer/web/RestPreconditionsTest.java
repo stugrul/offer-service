@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RestPreconditionsTest {
-
     private static final String ERROR_MESSAGE = "Error Message";
 
     @Test

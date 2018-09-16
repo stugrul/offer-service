@@ -3,7 +3,6 @@ package com.worldpay.offer.web;
 import com.worldpay.offer.exceptionhandler.exception.OfferServiceBadRequest;
 
 public final class RestPreconditions {
-
     static final String NULL_REQUEST_ELEMENT_MESSAGE = "Null request element detected";
 
     public static void checkIfBadRequest(final boolean expression, final String message) {
