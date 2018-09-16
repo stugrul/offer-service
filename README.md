@@ -21,9 +21,9 @@ By default the application runs on port 8082 in local environment
 
 **Technologies**
 
-The application is built in Java 8 with Spring Boot while benefiting Test Driven Development
+The application is built in Java 8 with Spring Boot while benefiting Test Driven Development.
 
-The application is using an H2 in memory database
+The application is using an H2 in memory database.
 
 There are 5 endpoints available, all endpoints produces and consumes Json representations. (application/json) 
 
@@ -37,7 +37,7 @@ PUT http://localhost:8082/offers/{id}
 
 DELETE http://localhost:8082/offers/{id}
 
-API allows merchants to advertise, retrieve, update and delete offers
+API allows merchants to advertise, retrieve, update and delete offers.
 
 Below is an Offer object which some of the endpoints consume
 
@@ -70,7 +70,7 @@ PUT http://localhost:8082/offers/1
 To delete simple send 
 DELETE http://localhost:8082/offers/{id}
 
-All fields are required and names should be unique
+All fields are required and names should be unique.
 
 **Built With**
 Maven, 
