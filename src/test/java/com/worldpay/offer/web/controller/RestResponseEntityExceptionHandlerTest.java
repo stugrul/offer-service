@@ -1,6 +1,7 @@
 package com.worldpay.offer.web.controller;
 
-import com.worldpay.offer.exception.OfferServiceResourceNotFoundException;
+import com.worldpay.offer.exceptionhandler.RestResponseEntityExceptionHandler;
+import com.worldpay.offer.exceptionhandler.exception.OfferServiceResourceNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

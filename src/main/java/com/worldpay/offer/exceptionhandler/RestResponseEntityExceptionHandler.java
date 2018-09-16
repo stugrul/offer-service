@@ -1,7 +1,7 @@
-package com.worldpay.offer.web.controller;
+package com.worldpay.offer.exceptionhandler;
 
-import com.worldpay.offer.exception.OfferServiceResourceNotFoundException;
-import com.worldpay.offer.exception.api.ApiError;
+import com.worldpay.offer.exceptionhandler.api.ApiError;
+import com.worldpay.offer.exceptionhandler.exception.OfferServiceResourceNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {DataIntegrityViolationException.class, OfferServiceResourceNotFoundException.class})
-    protected final ResponseEntity<Object> handleBadRequest(final RuntimeException ex, final WebRequest request) {
+    public final ResponseEntity<Object> handleBadRequest(final RuntimeException ex, final WebRequest request) {
         return handleExceptionInternal(ex, message(HttpStatus.NOT_FOUND, ex), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 

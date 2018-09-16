@@ -1,4 +1,4 @@
-package com.worldpay.offer.exception;
+package com.worldpay.offer.exceptionhandler.exception;
 
 public class OfferServiceResourceNotFoundException extends RuntimeException {
 

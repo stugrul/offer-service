@@ -1,4 +1,4 @@
-package com.worldpay.offer.exception.api;
+package com.worldpay.offer.exceptionhandler.api;
 
 public class ApiError {
 

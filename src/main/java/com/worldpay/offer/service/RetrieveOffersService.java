@@ -1,6 +1,6 @@
 package com.worldpay.offer.service;
 
-import com.worldpay.offer.exception.OfferServiceResourceNotFoundException;
+import com.worldpay.offer.exceptionhandler.exception.OfferServiceResourceNotFoundException;
 import com.worldpay.offer.persistence.model.Offer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
