@@ -35,7 +35,7 @@ class RetrieveOffersControllerTest {
     private RetrieveOffersService retrieveOffersService;
 
     @Test
-    void shouldFindOffers() throws Exception {
+    void should_FindOffers() throws Exception {
         Offer offer = getOffer();
         List<Offer> allOffers = Collections.singletonList(offer);
 
@@ -52,7 +52,7 @@ class RetrieveOffersControllerTest {
     }
 
     @Test
-    void shouldFindOffer_ById() throws Exception {
+    void should_FindOffer_ById() throws Exception {
         Offer offer = getOffer();
 
         given(retrieveOffersService.findById(1L)).willReturn(offer);

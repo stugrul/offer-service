@@ -28,7 +28,7 @@ class CreateOfferControllerTest {
     private CreateOfferService createOfferService;
 
     @Test
-    void shouldCreateOffer() throws Exception {
+    void should_CreateOffer() throws Exception {
         Offer offer = getOffer();
 
         willDoNothing().given(createOfferService).create(offer);

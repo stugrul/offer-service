@@ -13,22 +13,29 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class CreateOfferServiceTest {
+class UpdateOfferServiceTest {
 
-    @Mock
-    private Offer offer;
+    @InjectMocks
+    private UpdateOfferService updateOfferService;
 
     @Mock
     private JpaRepository<Offer, Long> offerJpaRepository;
 
-    @InjectMocks
-    private CreateOfferService createOfferService;
+    @Mock
+    private RetrieveOffersService retrieveOffersService;
+
+    @Mock
+    private Offer offer;
 
     @Test
-    void should_CreateOffer() {
+    void should_UpdateOffer() {
+        when(offer.getId()).thenReturn(1L);
+
+        when(retrieveOffersService.findById(offer.getId())).thenReturn(offer);
+
         when(offerJpaRepository.save(offer)).thenReturn(offer);
 
-        createOfferService.create(offer);
+        updateOfferService.update(1L, offer);
 
         assertAll(
                 () -> verify(offerJpaRepository).save(offer)

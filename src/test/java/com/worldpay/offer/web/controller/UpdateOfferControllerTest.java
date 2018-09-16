@@ -28,7 +28,7 @@ class UpdateOfferControllerTest {
     private UpdateOfferService updateOfferService;
 
     @Test
-    void shouldUpdateOffer() throws Exception {
+    void should_UpdateOffer() throws Exception {
         Offer offer = getOffer();
 
         willDoNothing().given(updateOfferService).update(1L, offer);
