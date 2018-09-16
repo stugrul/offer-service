@@ -21,7 +21,7 @@ By default the application runs on port 8082 in local environment
 
 **Technologies**
 
-The application is built in Java 8 with Spring Boot while benefiting Test Driven Development and Single Responsibility Principle techniques
+The application is built in Java 8 with Spring Boot while benefiting Test Driven Development
 
 There are 5 endpoints available, all endpoints produces and consumes Json representations. (application/json) 
 
