@@ -72,10 +72,10 @@ DELETE http://localhost:8082/offers/{id}
 All fields are required and names should be unique
 
 **Built With**
-Maven 
-Java 8
-Spring Boot
-Junit5
-Mockito 2.0
-Spring JPA Data
+Maven, 
+Java 8,
+Spring Boot 2.0.5.RELEASE,
+Junit5,
+Mockito 2.0,
+Spring JPA Data,
 Spring Rest Repositories
