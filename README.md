@@ -4,7 +4,7 @@ Offer Service
 
 **Description**
 
-This is a Restful Offer Service which allows merchants to sell offers. Application communicates over HTTP protocol
+This is a Restful Offer Service which allows merchants to sell offers. Application communicates over HTTP protocol.
 
 **Getting Started**
 
