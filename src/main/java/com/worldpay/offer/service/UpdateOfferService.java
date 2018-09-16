@@ -15,7 +15,7 @@ public class UpdateOfferService {
         this.retrieveOffersService = retrieveOffersService;
     }
 
-    public void update(final Long id, final Offer offer) {
+    public void update(final long id, final Offer offer) {
         if (retrieveOffersService.findById(id) != null) {
             offerJpaRepository.save(offer);
         }

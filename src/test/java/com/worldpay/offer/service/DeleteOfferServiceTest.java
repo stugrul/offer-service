@@ -9,15 +9,15 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class UpdateOfferServiceTest {
-
+class DeleteOfferServiceTest {
     @InjectMocks
-    private UpdateOfferService updateOfferService;
+    private DeleteOfferService deleteOfferService;
 
     @Mock
     private JpaRepository<Offer, Long> offerJpaRepository;
@@ -34,12 +34,12 @@ class UpdateOfferServiceTest {
 
         when(retrieveOffersService.findById(offer.getId())).thenReturn(offer);
 
-        when(offerJpaRepository.save(offer)).thenReturn(offer);
+        doNothing().when(offerJpaRepository).delete(offer);
 
-        updateOfferService.update(1L, offer);
+        deleteOfferService.delete(1L, offer);
 
         assertAll(
-                () -> verify(offerJpaRepository).save(offer)
+                () -> verify(offerJpaRepository).delete(offer)
         );
     }
 
@@ -49,10 +49,10 @@ class UpdateOfferServiceTest {
 
         when(retrieveOffersService.findById(offer.getId())).thenReturn(null);
 
-        updateOfferService.update(1L, offer);
+        deleteOfferService.delete(1L, offer);
 
         assertAll(
-                () -> verify(offerJpaRepository, never()).save(offer)
+                () -> verify(offerJpaRepository, never()).delete(offer)
         );
     }
 }
