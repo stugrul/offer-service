@@ -23,6 +23,8 @@ By default the application runs on port 8082 in local environment
 
 The application is built in Java 8 with Spring Boot while benefiting Test Driven Development
 
+The application is using an H2 in memory database
+
 There are 5 endpoints available, all endpoints produces and consumes Json representations. (application/json) 
 
 GET http://localhost:8082/offers
@@ -77,4 +79,5 @@ Spring Boot 2.0.5.RELEASE,
 Junit5,
 Mockito 2.0,
 Spring JPA Data,
-Spring Rest Repositories
+Spring Rest Repositories,
+H2 in memory Database
