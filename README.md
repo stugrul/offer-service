@@ -56,6 +56,7 @@ To Retrieve all offers simply do GET http://localhost:8082/offers
 To update, the app needs the offer id and the offer object itself, below is an example
 
 PUT http://localhost:8082/offers/1
+
 {
   "id": 1,
   "name": "Garfield Offer",
