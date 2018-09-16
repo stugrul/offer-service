@@ -2,6 +2,10 @@
 
 Offer Service
 
+**Description**
+
+This is a Restful Offer Service which allows merchants to sell offers. Application communicates over HTTP protocol
+
 **Getting Started**
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
