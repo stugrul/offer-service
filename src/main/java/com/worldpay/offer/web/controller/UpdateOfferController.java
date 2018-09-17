@@ -29,9 +29,8 @@ public class UpdateOfferController {
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable Long id, @RequestBody @Valid final Offer offer) {
 
-        RestPreconditions.checkRequestElementNotNull(offer);
-        RestPreconditions.checkRequestElementNotNull(offer.getId());
-        RestPreconditions.checkIfBadRequest(offer.getId().equals(id), "Offer ID and URI ID don't match");
+        RestPreconditions.checkIfBadRequest(offer);
+        RestPreconditions.checkIfIdsMatch(offer.getId().equals(id), "Offer ID and URI ID don't match");
 
         updateOfferService.update(id, offer);
     }

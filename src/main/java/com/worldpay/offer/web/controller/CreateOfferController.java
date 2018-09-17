@@ -28,8 +28,7 @@ public class CreateOfferController {
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody @Valid final Offer offer) {
 
-        RestPreconditions.checkRequestElementNotNull(offer);
-        RestPreconditions.checkRequestElementNotNull(offer.getId());
+        RestPreconditions.checkIfBadRequest(offer);
         createOfferService.create(offer);
     }
 }
