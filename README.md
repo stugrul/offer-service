@@ -17,9 +17,13 @@ The application requires Java 8 or higher. Rest of the application is self conta
 
 **Installing**
 
-Once the source code is checked out, run mvn clean install to download dependencies. 
+Once the source code is checked out, run mvn clean install to download dependencies using the following command at the root directory of offer-service
 
-To run the application simply run it as Spring Boot application either using your IDE or running mvn spring-boot:run
+./mvnw clean install
+
+To run the application simply run it as Spring Boot application either using your IDE or running 
+
+./mvnw spring-boot:run
 
 By default the application runs on port 8082 in local environment
 
