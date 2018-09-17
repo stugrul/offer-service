@@ -10,26 +10,46 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "offer")
 public class Offer {
+    /**
+     * Id is a primary key
+     * which identifies offers
+     */
     @Id
     @Column(name = "OFFER_ID")
     private Long id;
 
+    /**
+     * Unique offer name
+     */
     @Column(unique = true, nullable = false)
     @NotNull
     private String name;
 
+    /**
+     * Description of the offer
+     */
     @Column(unique = false, nullable = false)
     @NotNull
     private String description;
 
+    /**
+     * Price of the offer
+     */
     @Column(unique = false, nullable = false)
     @NotNull
     private BigDecimal price;
 
+    /**
+     * Currency value
+     */
     @Column(unique = false, nullable = false)
     @NotNull
     private String currency;
 
+    /**
+     * Expiry date. Required to follow ISO Local Date format
+     * Format: yyyy-MM-dd
+     */
     @Column(unique = false, nullable = false)
     @NotNull
     private String validUntil;
